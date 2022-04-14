@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">User Stats</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="otp_verification">OTP Verification</string>
+    <string name="we_will_send_you_an_otp">We will send you an OTP on this Mobile Number</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="_91">+91 - </string>
+    <string name="get_otp">Get OTP</string>
+    <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
+    <string name="resend_otp">RESEND OTP</string>
+    <string name="didn_t_received_otp">Didn\'t received OTP ?</string>
+    <string name="verify">Verify</string>
+</resources>

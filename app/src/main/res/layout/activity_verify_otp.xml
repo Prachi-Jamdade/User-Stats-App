@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifyOTPActivity"
+    android:background="@color/lightBlack">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginTop="80dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/otp_received"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/otp_verification"
+            android:textColor="@color/color_primary"
+            android:fontFamily="@font/rubiksemibold"
+            android:textSize="@dimen/title_size2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/title_size1"
+            android:fontFamily="@font/rubikregular"
+            android:text="@string/enter_the_otp_sent_to"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textMobile"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:textSize="@dimen/title_size1"
+            android:textColor="@color/gray"
+            android:fontFamily="@font/rubikregular"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/otpCode1"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/otpCode2"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/otpCode3"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/otpCode4"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/otpCode5"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+            <EditText
+                android:id="@+id/otpCode6"
+                android:layout_width="40dp"
+                android:layout_height="45dp"
+                android:importantForAutofill="no"
+                android:gravity="center"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                tools:ignore="LabelFor"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                android:textColor="@color/gray"
+                android:text="@string/didn_t_received_otp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resendOTP"
+                android:text="@string/resend_otp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/color_primary"
+                android:fontFamily="@font/rubiksemibold"
+                android:textSize="@dimen/title_size1"/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/verifyOtpBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:text="@string/verify"
+                android:textColor="@color/white"
+                android:textSize="@dimen/title_size1"
+                android:fontFamily="@font/rubikregular"
+                android:background="@drawable/button_back"/>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>
