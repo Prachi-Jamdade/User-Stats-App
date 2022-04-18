@@ -24,6 +24,7 @@ public class HomeFragment extends Fragment {
     MaterialTextView totalUsers, verifiedUsers;
     int counter = 0;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,16 +35,28 @@ public class HomeFragment extends Fragment {
         verifiedUsers = view.findViewById(R.id.verifiedUsers);
 
         Query query = FirebaseDatabase.getInstance()
-                .getReference("Users");
+                .getReference().child("Users");
 
-        ValueEventListener valueEventListener = new ValueEventListener() {
+//        ValueEventListener valueEventListener = new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//
+//                counter = (int) snapshot.getChildrenCount();
+//
+//                for (DataSnapshot data : snapshot.getChildren()) {
+//                    Users user = data.getValue(Users.class);
+//                    counter++;
+//                    totalUsers.setText(Integer.toString(counter));
+//                    verifiedUsers.setText(Integer.toString(counter));
+//
+//                }
+//
+//            }
+
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Users user = data.getValue(Users.class);
-                    counter++;
-                }
+                counter = (int) snapshot.getChildrenCount();
                 totalUsers.setText(Integer.toString(counter));
                 verifiedUsers.setText(Integer.toString(counter));
             }
@@ -52,9 +65,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(DatabaseError error) {
 
             }
-        };
-
-        query.addValueEventListener(valueEventListener);
+        });
 
         return view;
     }
