@@ -30,7 +30,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="10"
+            android:id="@+id/totalUsers"
+            android:text=""
             android:textSize="@dimen/title_size1"
             android:textColor="@color/black"
             android:padding="10dp"
@@ -63,7 +64,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="4"
+            android:id="@+id/verifiedUsers"
+            android:text=""
             android:padding="10dp"
             android:layout_marginStart="5dp"
             android:textColor="@color/black"

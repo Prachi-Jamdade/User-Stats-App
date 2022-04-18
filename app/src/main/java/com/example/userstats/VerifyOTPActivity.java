@@ -15,6 +15,7 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.userstats.model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
@@ -22,6 +23,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -29,8 +36,11 @@ import java.util.concurrent.TimeUnit;
 
 public class VerifyOTPActivity extends AppCompatActivity {
 
+    public int USER_COUNT = 0;
     private EditText otpCode1, otpCode2, otpCode3, otpCode4, otpCode5, otpCode6;
     private String verificationID;
+    FirebaseDatabase fdb;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +99,50 @@ public class VerifyOTPActivity extends AppCompatActivity {
                             progressBar.setVisibility(View.GONE);
                             verifyBtn.setVisibility(View.VISIBLE);
                             if(task.isSuccessful()) {
+
+                                String phoneNumber = getIntent().getStringExtra("mobile");
+                                if(!phoneNumber.isEmpty()) {
+//                                    USER_COUNT++;
+//                                    int cur = USER_COUNT;
+//                                    String cnt = Integer.toString(cur);
+                                    Users user = new Users(phoneNumber);
+                                    fdb = FirebaseDatabase.getInstance();
+                                    reference = fdb.getReference().child("Users");
+                                    Query check = reference.equalTo(phoneNumber);
+
+                                    check.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
+                                            if(snapshot.exists()) {
+                                                textMobile.setText("User Already Exists!");
+                                                return;
+                                            }
+
+                                            else {
+                                                reference.push().setValue(user);
+                                                Toast.makeText(VerifyOTPActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull @NotNull DatabaseError error) {
+
+                                        }
+                                    });
+//                                    String userName = "User" + cnt;
+//                                    reference.child(userName).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(Task<Void> task) {
+//                                            Toast.makeText(VerifyOTPActivity.this, "Data Added", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
+
+
+//
+
+                                }
+
+
                                 Toast.makeText(VerifyOTPActivity.this, "Successfully Logged In!", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

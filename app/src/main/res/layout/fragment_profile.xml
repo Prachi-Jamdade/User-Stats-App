@@ -63,26 +63,25 @@
         </RelativeLayout>
 
         <Button
-            android:layout_width="220dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Clear all Offers"
             android:id="@+id/clearAll"
             android:layout_gravity="center"
             android:background="@drawable/button_back"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="10dp"
+            android:layout_margin="30dp"
             android:textSize="@dimen/title_size1"
             android:fontFamily="@font/rubikregular"
             android:textAllCaps="false"/>
 
         <Button
-            android:layout_width="220dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/logOutBtn"
             android:textAllCaps="false"
             android:layout_gravity="center"
             android:background="@drawable/button_back"
-            android:layout_marginTop="5dp"
+            android:layout_margin="30dp"
             android:textSize="@dimen/title_size1"
             android:fontFamily="@font/rubikregular"
             android:text="Log Out"/>
