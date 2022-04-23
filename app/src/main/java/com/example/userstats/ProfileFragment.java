@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment {
             Toast.makeText(getContext(), "Logged Out Successfully!", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(getContext(), LoginActivity.class));
         });
-
         return view;
     }
+
 }
